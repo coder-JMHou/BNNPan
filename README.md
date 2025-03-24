@@ -1,2 +1,2 @@
 # BNNPan
-Offical impementation fro BNNPan (CVPR 2025)
+Offical implementation for BNNPan (CVPR 2025)
