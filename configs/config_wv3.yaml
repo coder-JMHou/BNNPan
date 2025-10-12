@@ -1,0 +1,43 @@
+name: LFormer  # project_name
+dataset_name: 'WV3'  # only support 'GF2', 'WV3', 'WV2', 'cave'
+model_name: 'BiWaveDiffSNTBBFDN'
+step: 'S3_model'
+# train setting
+alpha: 0.1
+epoch_num: 1000
+batch_size: 32
+base_lr: 3e-4
+weight_decay: 1e-6
+gamma: 0.1
+step_size: 250
+pre_train_model: 'LFormer_epoch1000.pth'
+df_loss: False
+wave_loss: False
+# model setting
+pan_channels: 1
+lms_channels: 8
+hid_channels: 64
+layers: 4
+n_denoise_res: 1
+linear_start: 0.1
+linear_end: 0.99
+timesteps: 4
+
+train_data_path: '/home/LJL/Proj/pansharpening_data/training_wv3/train_wv3.h5'
+valid_data_path: '/home/LJL/Proj/pansharpening_data/training_wv3/valid_wv3.h5'
+log_dir: 'logs'
+# tensorboard file path
+work_dir: './work_dir/'
+version: 'dim64'
+tb_log_path: './tb_logs'
+weights_path: 'weights'
+results_path: 'results'
+device: 'cuda:1'
+workers: 0
+save_epoch: 25
+#test_mode: 'reduced'
+#test_data_path: '/home/LJL/Proj/pansharpening_data/training_wv3/train_wv3.h5'
+#test_data_path: '/home/LJL/Proj/pansharpening_data/test data/h5/WV3/reduce_examples/test_wv3_multiExm1.h5'
+test_mode: 'full'
+test_data_path: '/home/LJL/Proj/pansharpening_data/test data/h5/WV3/full_examples/test_wv3_OrigScale_multiExm1.h5'
+test_weight_path: 'LFormer_epoch1000.pth'
